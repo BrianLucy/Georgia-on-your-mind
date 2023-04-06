@@ -1,0 +1,28 @@
+const form = document.querySelector('form');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault(); // Prevent the form from submitting normally
+
+  // Get the input values
+  const username = document.querySelector('#username').value;
+  const email = document.querySelector('#email').value;
+  const password = document.querySelector('#password').value;
+
+  // fetch request
+  const response = await fetch('/signup', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ username, email, password })
+  });
+
+  // Handle the response
+  if (response.ok) {
+    // sign-up was successful, sending back to the login page
+    window.location.href = '/login';
+  } else {
+    // The sign-up failed, error message
+    const error = await response.json();
+    document.querySelector('#error').textContent = error.message;
+  }
+});
