@@ -1,0 +1,27 @@
+const form = document.querySelector('form');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault(); // Prevent the form from submitting normally
+
+  const email = document.querySelector('#email').value;
+  const password = document.querySelector('#password').value;
+
+  // Send a fetch request with the form data
+  const response = await fetch('/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email, password })
+  });
+
+
+  // Handle the response
+  if (response.ok) {
+    // login was successful, going back to the home page
+    window.location.href = '/';
+  } else {
+    // login failed, display error message
+    const error = await response.json();
+    document.querySelector('#error').textContent = error.message;
+  }
+});
