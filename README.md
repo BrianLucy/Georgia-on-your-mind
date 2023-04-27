@@ -22,9 +22,8 @@ The app will require park patrons to create a username and password after which 
 
 ## Link
 
-    *LINK TO REPO: https://github.com/BrianLucy/Georgia-on-your-mind
-    *LINK TO DEPLOYED PAGE: [https://brianlucy.github.io/georgia-on-your-mind/](https://parkify.herokuapp.com/)
-
+    [Click Here](https://parkify.herokuapp.com/) to go to the repo link.
+  
 ## Installation
 
 To install simply fork the repo, and clone down to your local machine. Then in the CLI at relative dir run 'npm i' to get all dependancies required for sucessfull run of the package. Download mySQL, then create db by using 'SOURCE db/schema.sql' in mySQL shell. Ensure that you have updated the /config/connection.js to use your mySQL with sequelize. Finally run 'npm run seed' to seed the db with default data.
